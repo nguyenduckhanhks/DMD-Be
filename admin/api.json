@@ -1,0 +1,101 @@
+[
+  {
+    "name": "get-users",
+    "model": "user",
+    "action": "find",
+    "query": {},
+    "permissions": [],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "update-user",
+    "model": "user",
+    "action": "update",
+    "query": {},
+    "permissions": [16],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "/operation/set-user-password",
+    "model": null,
+    "action": null,
+    "query": null,
+    "permissions": [16],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
+    "name": "get-role",
+    "model": "role",
+    "action": "find",
+    "query": {},
+    "permissions": [21],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
+    "name": "create-role",
+    "model": "role",
+    "action": "create",
+    "query": {},
+    "permissions": [21],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
+    "name": "update-role",
+    "model": "role",
+    "action": "update",
+    "query": {},
+    "permissions": [21],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
+    "name": "/user/create-user",
+    "model": null,
+    "action": null,
+    "query": null,
+    "permissions": [16],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
+    "name": "get-orders",
+    "model": "order",
+    "action": "find",
+    "query": {},
+    "permissions": [1],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "update-order",
+    "model": "order",
+    "action": "update",
+    "query": {},
+    "permissions": [1],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "/operation/insert-order",
+    "model": null,
+    "action": null,
+    "query": null,
+    "permissions": [1],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
+    "name": "get-history-insert-orders",
+    "model": "history-insert-order",
+    "action": "find",
+    "query": {},
+    "permissions": [2],
+    "request_fields": null,
+    "response_fields": []
+  }
+]

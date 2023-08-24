@@ -1,0 +1,284 @@
+[
+  {
+    "name": "user",
+    "label": "User",
+    "api": "/operation/api/get-users",
+    "buttons": [
+      {
+        "icon": "plus",
+        "label": "Create",
+        "action": "redirect",
+        "position": "top",
+        "redirectUrl": "/form/user/create"
+      },
+      {
+        "api": "/operation/block-user",
+        "icon": "user close",
+        "color": "red",
+        "label": "Block",
+        "action": "api",
+        "position": "row",
+        "hideExpression": {
+          "$eq": ["$is_block", true]
+        }
+      },
+      {
+        "icon": "lock",
+        "color": "red",
+        "label": "Set password",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/password/create",
+        "redirectUrlEmbed": {
+          "embed": {
+            "id": "$id"
+          }
+        }
+      },
+      {
+        "api": "/operation/api/unblock-user",
+        "icon": "user close",
+        "color": "red",
+        "label": "Unblock",
+        "action": "api",
+        "position": "row",
+        "hideExpression": {
+          "$eq": ["$is_block", false]
+        }
+      },
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/edit-user/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      }
+    ],
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "display": "text"
+      },
+      {
+        "field": "user_name",
+        "label": "User name",
+        "display": "text"
+      },
+      {
+        "field": "role",
+        "label": "Permission",
+        "display": "enum",
+        "enumName": "user-role"
+      },
+      {
+        "field": "is_block",
+        "label": "Block",
+        "display": "enum",
+        "enumName": "yes-no"
+      }
+    ],
+    "filter": []
+  },
+  {
+    "name": "role",
+    "label": "Role",
+    "api": "/operation/api/get-role",
+    "buttons": [
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/role/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      },
+      {
+        "icon": "plus",
+        "color": "blue",
+        "label": "Create",
+        "action": "redirect",
+        "position": "top",
+        "redirectUrl": "/form/role/create"
+      }
+    ],
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "display": "text"
+      },
+      {
+        "field": "name",
+        "label": "Name",
+        "display": "text"
+      }
+    ],
+    "filter": null
+  },
+  {
+    "name": "order",
+    "label": "Order",
+    "api": "/operation/api/get-orders",
+    "where": {"status": true},
+    "buttons": [
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/edit-order/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      }
+    ],
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "display": "text"
+      },
+      {
+        "field": "customer_name",
+        "label": "Customer name",
+        "display": "text"
+      },
+      {
+        "field": "address",
+        "label": "Address",
+        "display": "text"
+      },
+      {
+        "field": "state",
+        "label": "State",
+        "display": "text"
+      },
+      {
+        "field": "zip",
+        "label": "Zip",
+        "display": "text"
+      },
+      {
+        "field": "country",
+        "label": "Country",
+        "display": "text"
+      },
+      {
+        "field": "city",
+        "label": "City",
+        "display": "text"
+      },
+      {
+        "field": "tracking_id",
+        "label": "Tracking ID",
+        "display": "text"
+      },
+      {
+        "field": "pdf",
+        "label": "PDF",
+        "display": "image"
+      }
+    ],
+    "filter": []
+  },
+  {
+    "name": "invalid-order",
+    "label": "Invalid Order",
+    "api": "/operation/api/get-orders",
+    "where": {"status": false},
+    "buttons": [
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/edit-order/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      }
+    ],
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "display": "text"
+      },
+      {
+        "field": "customer_name",
+        "label": "Customer name",
+        "display": "text"
+      },
+      {
+        "field": "address",
+        "label": "Address",
+        "display": "text"
+      },
+      {
+        "field": "state",
+        "label": "State",
+        "display": "text"
+      },
+      {
+        "field": "zip",
+        "label": "Zip",
+        "display": "text"
+      },
+      {
+        "field": "country",
+        "label": "Country",
+        "display": "text"
+      },
+      {
+        "field": "city",
+        "label": "City",
+        "display": "text"
+      },
+      {
+        "field": "tracking_id",
+        "label": "Tracking ID",
+        "display": "text"
+      },
+      {
+        "field": "pdf",
+        "label": "PDF",
+        "display": "image"
+      }
+    ],
+    "filter": []
+  },
+  {
+    "name": "history-insert-order",
+    "label": "History Insert Order",
+    "api": "/operation/api/get-history-insert-orders",
+    "buttons": [],
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "display": "text"
+      },
+      {
+        "field": "user_id",
+        "label": "User ID",
+        "display": "text"
+      },
+      {
+        "field": "created_at",
+        "label": "Create date",
+        "display": "date"
+      }
+    ],
+    "filter": []
+  }
+]

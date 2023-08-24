@@ -1,0 +1,32 @@
+[
+  {
+    "name": "User Manager",
+    "url": "/list/user",
+    "icon": "user",
+    "permissions": [14, 15, 16, 21]
+  },
+  {
+    "name": "Role",
+    "url": "/list/role",
+    "icon": "user",
+    "permissions": [21]
+  },
+  {
+    "name": "Orders",
+    "url": "/list/order",
+    "icon": "user",
+    "permissions": [1]
+  },
+  {
+    "name": "Invalid Orders",
+    "url": "/list/invalid-order",
+    "icon": "user",
+    "permissions": [1]
+  },
+  {
+    "name": "History Insert Order",
+    "url": "/list/history-insert-order",
+    "icon": "user",
+    "permissions": [1]
+  }
+]

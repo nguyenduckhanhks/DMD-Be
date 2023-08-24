@@ -1,0 +1,261 @@
+[
+  {
+    "name": "user",
+    "label": "User",
+    "api": "/operation/api/get-users",
+    "buttons": [
+      {
+        "api": "/user/create-user",
+        "icon": "plus",
+        "color": "blue",
+        "label": "Create",
+        "action": "api",
+        "pageMode": "create",
+        "position": "top"
+      },
+      {
+        "api": "/operation/update-user",
+        "icon": "edit",
+        "color": "blue",
+        "label": "Save",
+        "action": "api",
+        "pageMode": "edit",
+        "position": "top"
+      }
+    ],
+    "controls": [
+      {
+        "field": "user_name",
+        "label": "User name",
+        "control": "text",
+        "dataType": "string",
+        "disabled": true,
+        "required": true,
+        "placeholder": "User name"
+      },
+      {
+        "field": "name",
+        "label": "Name",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Data type"
+      },
+      {
+        "field": "password",
+        "label": "Password",
+        "control": "password",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Password"
+      },
+      {
+        "field": "role",
+        "label": "Role",
+        "control": "entity",
+        "dataType": "number",
+        "gridName": "role",
+        "required": false,
+        "placeholder": "Permission",
+        "displayField": "name"
+      }
+    ]
+  },
+  {
+    "name": "password",
+    "label": "Set password",
+    "api": "",
+    "buttons": [
+      {
+        "api": "/operation/set-user-password",
+        "icon": "lock",
+        "color": "red",
+        "label": "Set password",
+        "action": "api",
+        "pageMode": "create",
+        "position": "top"
+      }
+    ],
+    "controls": [
+      {
+        "field": "password",
+        "label": "Password",
+        "control": "password",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Password"
+      }
+    ]
+  },
+  {
+    "name": "edit-user",
+    "label": "Edit user",
+    "api": "/operation/api/get-users",
+    "buttons": [
+      {
+        "api": "/operation/api/update-user",
+        "icon": "edit",
+        "color": "blue",
+        "label": "Save",
+        "action": "api",
+        "pageMode": "edit",
+        "position": "top"
+      }
+    ],
+    "controls": [
+      {
+        "field": "user_name",
+        "label": "User name",
+        "control": "text",
+        "dataType": "string",
+        "disabled": true,
+        "required": true,
+        "placeholder": "User name"
+      },
+      {
+        "field": "name",
+        "label": "Name",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Data type"
+      },
+      {
+        "field": "role",
+        "label": "Role",
+        "control": "entity",
+        "dataType": "number",
+        "gridName": "role",
+        "required": false,
+        "placeholder": "Permission",
+        "displayField": "name"
+      }
+    ]
+  },
+  {
+    "name": "role",
+    "label": "Role",
+    "api": "/operation/api/get-role",
+    "buttons": [
+      {
+        "api": "/operation/api/create-role",
+        "icon": "plus",
+        "color": "blue",
+        "label": "Create",
+        "action": "api",
+        "pageMode": "create",
+        "position": "top"
+      },
+      {
+        "api": "/operation/api/update-role",
+        "icon": "save",
+        "color": "blue",
+        "label": "Save",
+        "action": "api",
+        "pageMode": "edit",
+        "position": "top"
+      }
+    ],
+    "controls": [
+      {
+        "field": "name",
+        "label": "Api name",
+        "control": "text",
+        "dataType": "string",
+        "required": true
+      },
+      {
+        "enum": "permissions",
+        "field": "permissions",
+        "label": "Permission",
+        "control": "tree",
+        "multiple": true,
+        "required": true,
+        "placeholder": "Request type"
+      }
+    ]
+  },
+  {
+    "name": "edit-order",
+    "label": "Edit order",
+    "api": "/operation/api/get-orders",
+    "buttons": [
+      {
+        "api": "/operation/api/update-order",
+        "icon": "edit",
+        "color": "blue",
+        "label": "Save",
+        "action": "api",
+        "pageMode": "edit",
+        "position": "top"
+      }
+    ],
+    "controls": [
+      {
+        "field": "tracking_id",
+        "label": "Tracking Id",
+        "control": "text",
+        "dataType": "string",
+        "disabled": true,
+        "required": true,
+        "placeholder": "Tracking Id"
+      },
+      {
+        "field": "customer_name",
+        "label": "Customer Name",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Customer Name"
+      },
+      {
+        "field": "address",
+        "label": "Address",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Address"
+      },
+      {
+        "field": "state",
+        "label": "State",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "State"
+      },
+      {
+        "field": "zip",
+        "label": "Zip",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Zip"
+      },
+      {
+        "field": "country",
+        "label": "Country",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "Country"
+      },
+      {
+        "field": "city",
+        "label": "City",
+        "control": "text",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "City"
+      },
+      {
+        "field": "pdf",
+        "label": "PDF Image",
+        "control": "image",
+        "dataType": "string",
+        "required": true,
+        "placeholder": "PDF Image"
+      }
+    ]
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "items": [
+      {
+        "color": "brown",
+        "label": "Admin",
+        "value": 1
+      }
+    ],
+    "value_type": "number",
+    "name": "user-role"
+  },
+  {
+    "items": [
+      {
+        "color": "green",
+        "label": "Yes",
+        "value": 1
+      },
+      {
+        "color": "red",
+        "label": "No",
+        "value": 0
+      }
+    ],
+    "value_type": "number",
+    "name": "yes-no"
+  },
+  {
+    "items": [
+      {
+        "label": "Admin User",
+        "value": 14,
+        "children": [
+          {
+            "label": "View Admin User",
+            "value": 15
+          },
+          {
+            "label": "Edit Admin User",
+            "value": 16
+          },
+          {
+            "label": "Edit Role",
+            "value": 21
+          }
+        ]
+      }
+    ],
+    "value_type": "number",
+    "name": "admin-permission-tree"
+  }
+]
