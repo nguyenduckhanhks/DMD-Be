@@ -1,7 +1,7 @@
 [
   {
     "name": "Label Printing",
-    "url": "/list/order",
+    "url": "/label-scan",
     "icon": "user",
     "permissions": [1]
   },
