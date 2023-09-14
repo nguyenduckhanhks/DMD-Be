@@ -13,7 +13,7 @@
     "children": [
       {
         "name": "Valid Order",
-        "url": "/list/valid-order",
+        "url": "/list/order",
         "icon": "box",
         "permissions": [
           55
