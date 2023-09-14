@@ -1,20 +1,26 @@
 [
   {
+    "name": "Import data",
+    "url": "/",
+    "icon": "upload",
+    "permissions": [1]
+  },
+  {
     "name": "Label Printing",
     "url": "/label-scan",
-    "icon": "user",
+    "icon": "print",
     "permissions": [1]
   },
   {
     "name": "Order",
     "url": "/list/order",
-    "icon": "user",
+    "icon": "folder",
     "permissions": [1],
     "children": [
       {
         "name": "Valid Order",
         "url": "/list/order",
-        "icon": "box",
+        "icon": "folder",
         "permissions": [
           55
         ]
@@ -22,7 +28,7 @@
       {
         "name": "Invalid Order",
         "url": "/list/invalid-order",
-        "icon": "box",
+        "icon": "folder",
         "permissions": [
           55
         ]
@@ -30,7 +36,7 @@
       {
         "name": "Canceled Order",
         "url": "/list/canceled-order",
-        "icon": "box",
+        "icon": "folder",
         "permissions": [
           55
         ]
@@ -40,13 +46,13 @@
   {
     "name": "User Manager",
     "url": "/list/user",
-    "icon": "user",
+    "icon": "users",
     "permissions": [14, 15, 16, 21]
   },
   {
     "name": "Role",
     "url": "/list/role",
-    "icon": "user",
+    "icon": "settings",
     "permissions": [21]
   }
 ]
