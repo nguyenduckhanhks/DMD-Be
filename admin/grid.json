@@ -127,6 +127,83 @@
     "name": "order",
     "label": "Order",
     "api": "/operation/api/get-orders",
+    "buttons": [
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/edit-order/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      }
+    ],
+    "columns": [
+      {
+        "field": "id",
+        "label": "ID",
+        "display": "text"
+      },
+      {
+        "field": "customer_name",
+        "label": "Customer name",
+        "display": "text"
+      },
+      {
+        "field": "tracking_id",
+        "label": "Tracking ID",
+        "display": "text"
+      },
+      {
+        "field": "address",
+        "label": "Address",
+        "display": "text"
+      },
+      {
+        "field": "state",
+        "label": "State",
+        "display": "text"
+      },
+      {
+        "field": "zip",
+        "label": "Zip",
+        "display": "text"
+      },
+      {
+        "field": "city",
+        "label": "City",
+        "display": "text"
+      },
+      {
+        "field": "country",
+        "label": "Country",
+        "display": "text"
+      },
+      {
+        "field": "pdf",
+        "label": "Label",
+        "display": "image"
+      },
+      {
+        "field": "cancel_status",
+        "label": "Cancel Status",
+        "display": "enum",
+        "enumName": "cancel_status"
+      },
+      {
+        "field": "created_at",
+        "label": "Created At",
+        "display": "date"
+      }
+    ],
+    "filter": []
+  },
+  {
+    "name": "valid-order",
+    "label": "Valid Order",
+    "api": "/operation/api/get-orders",
     "where": { "status": true, "cancel_status": 0 },
     "buttons": [
       {
@@ -440,6 +517,11 @@
         "label": "Cancel Status",
         "display": "enum",
         "enumName": "cancel_status"
+      },
+      {
+        "field": "last_approve_cancel",
+        "label": "Last Approved At",
+        "display": "date"
       },
       {
         "field": "created_at",
