@@ -4,7 +4,7 @@
     "model": "user",
     "action": "find",
     "query": {},
-    "permissions": [],
+    "permissions": [1],
     "request_fields": null,
     "response_fields": []
   },
@@ -13,7 +13,7 @@
     "model": "user",
     "action": "update",
     "query": {},
-    "permissions": [16],
+    "permissions": [1],
     "request_fields": null,
     "response_fields": []
   },
@@ -22,7 +22,7 @@
     "model": null,
     "action": null,
     "query": null,
-    "permissions": [16],
+    "permissions": [1],
     "request_fields": null,
     "response_fields": null
   },
@@ -31,7 +31,7 @@
     "model": "role",
     "action": "find",
     "query": {},
-    "permissions": [21],
+    "permissions": [2],
     "request_fields": null,
     "response_fields": null
   },
@@ -40,7 +40,7 @@
     "model": "role",
     "action": "create",
     "query": {},
-    "permissions": [21],
+    "permissions": [2],
     "request_fields": null,
     "response_fields": null
   },
@@ -49,7 +49,7 @@
     "model": "role",
     "action": "update",
     "query": {},
-    "permissions": [21],
+    "permissions": [2],
     "request_fields": null,
     "response_fields": null
   },
@@ -58,7 +58,7 @@
     "model": null,
     "action": null,
     "query": null,
-    "permissions": [16],
+    "permissions": [1],
     "request_fields": null,
     "response_fields": null
   },
@@ -67,7 +67,7 @@
     "model": "order",
     "action": "find",
     "query": {},
-    "permissions": [1],
+    "permissions": [3],
     "request_fields": null,
     "response_fields": []
   },
@@ -76,7 +76,7 @@
     "model": "order",
     "action": "update",
     "query": {},
-    "permissions": [1],
+    "permissions": [3],
     "request_fields": null,
     "response_fields": []
   },
@@ -85,7 +85,7 @@
     "model": null,
     "action": null,
     "query": null,
-    "permissions": [1],
+    "permissions": [3],
     "request_fields": null,
     "response_fields": null
   },
@@ -94,7 +94,7 @@
     "model": "history-insert-order",
     "action": "find",
     "query": {},
-    "permissions": [2],
+    "permissions": [3],
     "request_fields": null,
     "response_fields": []
   },
@@ -103,7 +103,7 @@
     "model": "",
     "action": "",
     "query": {},
-    "permissions": [1],
+    "permissions": [3],
     "request_fields": null,
     "response_fields": []
   },
@@ -112,7 +112,7 @@
     "model": "",
     "action": "",
     "query": {},
-    "permissions": [1],
+    "permissions": [4],
     "request_fields": null,
     "response_fields": []
   },
@@ -121,7 +121,7 @@
     "model": "",
     "action": "",
     "query": {},
-    "permissions": [1],
+    "permissions": [4],
     "request_fields": null,
     "response_fields": []
   }

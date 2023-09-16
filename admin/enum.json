@@ -50,20 +50,24 @@
   {
     "items": [
       {
-        "label": "Admin User",
-        "value": 14,
+        "label": "Full Manager",
+        "value": 1,
         "children": [
           {
-            "label": "View Admin User",
-            "value": 15
+            "label": "User Manager",
+            "value": 1
           },
           {
-            "label": "Edit Admin User",
-            "value": 16
+            "label": "Role Manager",
+            "value": 2
           },
           {
-            "label": "Edit Role",
-            "value": 21
+            "label": "Order Manager",
+            "value": 3
+          },
+          {
+            "label": "Approve Cancel Request Manager",
+            "value": 4
           }
         ]
       }

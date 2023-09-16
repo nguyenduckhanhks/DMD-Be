@@ -159,7 +159,7 @@
     "controls": [
       {
         "field": "name",
-        "label": "Api name",
+        "label": "Role name",
         "control": "text",
         "dataType": "string",
         "required": true

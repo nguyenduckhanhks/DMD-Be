@@ -24,7 +24,7 @@ export default class RoleEntity extends Model {
   }
   public static async runRefresh() {
     await RoleEntity.refresh();
-    scheduleJob("*/5 * * * *", async () => {
+    scheduleJob("*/1 * * * *", async () => {
       try {
         await RoleEntity.refresh();
       } catch (error) {
