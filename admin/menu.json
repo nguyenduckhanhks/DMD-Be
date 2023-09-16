@@ -34,6 +34,14 @@
         ]
       },
       {
+        "name": "Canceling Order",
+        "url": "/list/canceling-order",
+        "icon": "folder",
+        "permissions": [
+          55
+        ]
+      },
+      {
         "name": "Canceled Order",
         "url": "/list/canceled-order",
         "icon": "folder",

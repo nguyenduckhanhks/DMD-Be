@@ -35,7 +35,7 @@ export default async function (app: fastify.FastifyInstance) {
           city: string;
           pdf: string;
           page: number;
-          status: number;
+          status: boolean;
           text_note: number;
         }) => {
           return new OrderEntity(dt);

@@ -29,6 +29,27 @@
   {
     "items": [
       {
+        "color": "green",
+        "label": "",
+        "value": 0
+      },
+      {
+        "color": "red",
+        "label": "Cancelling",
+        "value": 1
+      },
+      {
+        "color": "green",
+        "label": "Cancelled",
+        "value": 2
+      }
+    ],
+    "value_type": "number",
+    "name": "cancel_status"
+  },
+  {
+    "items": [
+      {
         "label": "Admin User",
         "value": 14,
         "children": [

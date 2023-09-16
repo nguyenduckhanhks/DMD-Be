@@ -97,5 +97,23 @@
     "permissions": [2],
     "request_fields": null,
     "response_fields": []
+  },
+  {
+    "name": "/order/request-cancel",
+    "model": "",
+    "action": "",
+    "query": {},
+    "permissions": [1],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "/order/confirm-cancel",
+    "model": "",
+    "action": "",
+    "query": {},
+    "permissions": [1],
+    "request_fields": null,
+    "response_fields": []
   }
 ]

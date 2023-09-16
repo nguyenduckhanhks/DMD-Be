@@ -1,4 +1,5 @@
-import { Model, Table, Column, DataType, Unique } from "sequelize-typescript";
+import { Model, Table, Column, DataType, Unique, Default } from "sequelize-typescript";
+import { CancelStatus } from "../config/interface";
 @Table({
   tableName: "order",
   version: true,
@@ -32,4 +33,13 @@ export default class OrderEntity extends Model {
   status: boolean;
   @Column({ type: DataType.TEXT })
   text_note: string;
+  @Default(CancelStatus.None)
+  @Column({ type: DataType.TINYINT })
+  cancel_status: CancelStatus;
+  @Column({ type: DataType.STRING })
+  new_tracking_id: string;
+  @Column({ type: DataType.STRING })
+  old_tracking_id: string;
+  @Column({ type: DataType.DATE })
+  last_approve_cancel: Date;
 }

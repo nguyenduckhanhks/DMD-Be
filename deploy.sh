@@ -1,1 +1,1 @@
-docker-compose --env-file .env.local up -d --build --force-recreate
+docker-compose --env-file .env up -d --build --force-recreate
