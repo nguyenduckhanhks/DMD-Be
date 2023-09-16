@@ -108,6 +108,15 @@
     "response_fields": []
   },
   {
+    "name": "/order/decline-cancel",
+    "model": "",
+    "action": "",
+    "query": {},
+    "permissions": [1],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
     "name": "/order/confirm-cancel",
     "model": "",
     "action": "",
