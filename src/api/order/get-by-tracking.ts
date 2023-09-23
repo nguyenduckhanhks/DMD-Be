@@ -21,6 +21,9 @@ export default async function (app: fastify.FastifyInstance) {
       if (!orderInfo) {
         throw new Error("not_found");
       }
+      if (!orderInfo.status && !orderInfo.bypass) {
+        throw new Error("order_invalid_data");
+      }
       let pdf = await orderInfo.getPdf()
       return {
         pdf
