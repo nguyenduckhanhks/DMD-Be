@@ -46,9 +46,9 @@ export default class OrderEntity extends Model {
   @Default(false)
   @Column({ type: DataType.BOOLEAN })
   bypass: boolean;
-  @Default("[]")
+  @Default([])
   @Column({ type: DataType.JSON })
-  old_labels: [];
+  old_labels: string[];
 
   public async getPdf(): Promise<string> {
     if (this.new_tracking_id) {
