@@ -256,7 +256,6 @@
         "label": "Country",
         "control": "text",
         "dataType": "string",
-        "required": true,
         "placeholder": "Country"
       },
       {
