@@ -185,7 +185,7 @@
         "api": "/order/request-cancel",
         "icon": "cancel",
         "color": "red",
-        "label": "Cancel",
+        "label": "Delete",
         "action": "api",
         "position": "row",
         "pageMode": "edit",
