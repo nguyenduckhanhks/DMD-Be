@@ -21,8 +21,9 @@ export default async function (app: fastify.FastifyInstance) {
       if (!orderInfo) {
         throw new Error("not_found");
       }
+      let pdf = await orderInfo.getPdf()
       return {
-        pdf: orderInfo.pdf,
+        pdf
       };
     },
   });

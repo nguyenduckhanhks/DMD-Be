@@ -46,7 +46,15 @@ export default class OrderEntity extends Model {
   @Default(false)
   @Column({ type: DataType.BOOLEAN })
   bypass: boolean;
-  @Default('[]')
+  @Default("[]")
   @Column({ type: DataType.JSON })
   old_labels: [];
+
+  public async getPdf(): Promise<string> {
+    if (this.new_tracking_id) {
+      let orderInfo = await OrderEntity.findByPk(this.new_tracking_id);
+      return orderInfo.getPdf();
+    }
+    return this.pdf;
+  }
 }
