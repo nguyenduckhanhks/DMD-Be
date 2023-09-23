@@ -52,7 +52,10 @@ export default class OrderEntity extends Model {
 
   public async getPdf(): Promise<string> {
     if (this.new_tracking_id) {
-      let orderInfo = await OrderEntity.findByPk(this.new_tracking_id);
+      let orderInfo = await OrderEntity.findOne({ where: { tracking_id: this.new_tracking_id } });
+      if (!orderInfo) {
+        throw new Error("invalid_order");
+      }
       return orderInfo.getPdf();
     }
     return this.pdf;
