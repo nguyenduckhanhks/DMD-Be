@@ -188,7 +188,10 @@
         "label": "Cancel",
         "action": "api",
         "position": "row",
-        "pageMode": "edit"
+        "pageMode": "edit",
+        "require": {
+          "cancel_status": 0
+        }
       },
       {
         "api": "/order/request-replace",
@@ -197,7 +200,10 @@
         "label": "Replace",
         "action": "api",
         "position": "row",
-        "pageMode": "edit"
+        "pageMode": "edit",
+        "require": {
+          "cancel_status": 0
+        }
       },
       {
         "api": "/order/update-order",
@@ -265,6 +271,14 @@
         "dataType": "string",
         "required": true,
         "placeholder": "City"
+      },
+      {
+        "field": "cancel_status",
+        "label": "Cancel Status",
+        "control": "enum",
+        "enum": "cancel_status",
+        "required": false,
+        "disabled": true
       },
       {
         "field": "pdf",
