@@ -179,9 +179,28 @@
     "name": "edit-order",
     "label": "Edit order",
     "api": "/operation/api/get-orders",
+    "totalGrid": 2,
     "buttons": [
       {
-        "api": "/operation/api/update-order",
+        "api": "/order/request-cancel",
+        "icon": "cancel",
+        "color": "red",
+        "label": "Cancel",
+        "action": "api",
+        "position": "row",
+        "pageMode": "edit"
+      },
+      {
+        "api": "/order/request-replace",
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Replace",
+        "action": "api",
+        "position": "row",
+        "pageMode": "edit"
+      },
+      {
+        "api": "/order/update-order",
         "icon": "edit",
         "color": "blue",
         "label": "Save",
@@ -254,7 +273,18 @@
         "control": "image",
         "dataType": "string",
         "required": true,
-        "placeholder": "PDF Image"
+        "placeholder": "PDF Image",
+        "grid": 2,
+        "className": "pdf-large"
+      },
+      {
+        "field": "old_labels",
+        "label": "Old Labels",
+        "control": "images",
+        "dataType": "string",
+        "placeholder": "",
+        "grid": 2,
+        "className": "pdf-small-container"
       }
     ]
   }

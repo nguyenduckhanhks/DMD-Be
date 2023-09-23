@@ -90,6 +90,15 @@
     "response_fields": null
   },
   {
+    "name": "/operation/get-download-data",
+    "model": null,
+    "action": null,
+    "query": null,
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": null
+  },
+  {
     "name": "get-history-insert-orders",
     "model": "history-insert-order",
     "action": "find",
@@ -100,6 +109,33 @@
   },
   {
     "name": "/order/request-cancel",
+    "model": "",
+    "action": "",
+    "query": {},
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "/order/bypass",
+    "model": "",
+    "action": "",
+    "query": {},
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "/order/update-order",
+    "model": "",
+    "action": "",
+    "query": {},
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "/order/request-replace",
     "model": "",
     "action": "",
     "query": {},

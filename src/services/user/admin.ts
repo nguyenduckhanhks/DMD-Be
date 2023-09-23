@@ -1,4 +1,4 @@
-import { Api } from "../../config/admin-interface";
+import { Api, Grid } from "../../config/admin-interface";
 
 const apis = require("../../../admin/api.json");
 const menus = require("../../../admin/menu.json");
@@ -12,6 +12,13 @@ function getApiByName(name: string) {
     throw new Error("api_not_found");
   }
   return api;
+}
+function getGridByName(name: string) {
+  let data = grids.find((a: Grid) => a.name === name);
+  if (!data) {
+    throw new Error("grid_not_found");
+  }
+  return data;
 }
 function getAllEnums() {
   return enums;
@@ -33,5 +40,6 @@ const admin = {
   getAllMenus,
   getAllForms,
   getAllGrids,
+  getGridByName
 };
 export default admin;

@@ -204,7 +204,21 @@
     "name": "valid-order",
     "label": "Valid Order",
     "api": "/operation/api/get-orders",
-    "where": { "status": true, "cancel_status": 0 },
+    "where": {
+      "cancel_status": 0,
+      "$or": [
+        {
+          "status": {
+            "$eq": 1
+          }
+        },
+        {
+          "bypass": {
+            "$eq": 1
+          }
+        }
+      ]
+    },
     "buttons": [
       {
         "icon": "edit",
@@ -276,7 +290,14 @@
     "name": "invalid-order",
     "label": "Invalid Order",
     "api": "/operation/api/get-orders",
-    "where": { "status": false, "cancel_status": 0 },
+    "where": {
+      "status": false,
+      "cancel_status": 0,
+      "$or": [
+        { "bypass": { "$eq": false } },
+        { "bypass": { "$eq": null } }
+      ]
+    },
     "buttons": [
       {
         "icon": "edit",

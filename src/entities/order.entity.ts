@@ -29,6 +29,7 @@ export default class OrderEntity extends Model {
   pdf: string;
   @Column({ type: DataType.INTEGER })
   page: number;
+  @Default(true)
   @Column({ type: DataType.BOOLEAN })
   status: boolean;
   @Column({ type: DataType.TEXT })
@@ -42,4 +43,10 @@ export default class OrderEntity extends Model {
   old_tracking_id: string;
   @Column({ type: DataType.DATE })
   last_approve_cancel: Date;
+  @Default(false)
+  @Column({ type: DataType.BOOLEAN })
+  bypass: boolean;
+  @Default('[]')
+  @Column({ type: DataType.JSON })
+  old_labels: [];
 }

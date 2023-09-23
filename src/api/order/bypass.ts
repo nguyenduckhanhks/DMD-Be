@@ -1,21 +1,23 @@
 "use strict";
 import * as fastify from "fastify";
-import { CancelStatus } from "../../config/interface";
 import { OrderEntity } from "../../entities";
 import APIGuard from "../../guard/api-guard";
 export default async function (app: fastify.FastifyInstance) {
   app.route({
     method: "POST",
-    url: "/request-cancel",
+    url: "/bypass",
     preHandler: APIGuard,
     handler: async function (request: any, reply: any) {
-      const { id: order_id, tracking_id } = request.body;
+      const { id: order_id } = request.body;
       const orderInfo = await OrderEntity.findByPk(order_id);
-      if (!orderInfo) {
-        throw new Error("not_found");
+
+      if (orderInfo.status) {
+        throw new Error("not_required_bypass");
       }
-      orderInfo.cancel_status = CancelStatus.Cancelling;
-      orderInfo.new_tracking_id = "";
+      if (!orderInfo.bypass) {
+        orderInfo.bypass = true;
+      }
+
       await orderInfo.save();
       return orderInfo;
     },
