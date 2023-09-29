@@ -48,6 +48,14 @@
         "permissions": [
           3
         ]
+      },
+      {
+        "name": "Pending Order",
+        "url": "/list/pending-order",
+        "icon": "folder",
+        "permissions": [
+          3
+        ]
       }
     ]
   },

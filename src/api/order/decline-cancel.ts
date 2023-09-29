@@ -1,7 +1,9 @@
 "use strict";
 import dayjs from "dayjs";
 import * as fastify from "fastify";
+import { Transaction } from "sequelize";
 import { CancelStatus } from "../../config/interface";
+import { sequelize } from "../../database";
 import { OrderEntity } from "../../entities";
 import APIGuard from "../../guard/api-guard";
 export default async function (app: fastify.FastifyInstance) {
@@ -30,7 +32,16 @@ export default async function (app: fastify.FastifyInstance) {
       }
 
       orderInfo.cancel_status = CancelStatus.None;
-      await orderInfo.save();
+      orderInfo.new_tracking_id = null;
+
+      let newOrder: OrderEntity = null;
+      if (orderInfo.new_tracking_id) {
+        newOrder = await OrderEntity.findOne({ where: { tracking: orderInfo.new_tracking_id } });
+      }
+      await sequelize.transaction(async (transaction: Transaction) => {
+        await orderInfo.save({ transaction });
+        await newOrder?.destroy({ transaction });
+      });
       return orderInfo;
     },
   });

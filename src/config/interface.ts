@@ -8,5 +8,6 @@ export enum RabbitMqQueueName {
 export enum CancelStatus {
   None,
   Cancelling,
-  Canceled
+  Canceled,
+  Pending
 }

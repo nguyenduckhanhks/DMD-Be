@@ -30,9 +30,10 @@ export default async function (app: fastify.FastifyInstance) {
       let newOrder = new OrderEntity({
         ...payload,
         old_labels: [...(payload.old_labels ?? []), orderInfo.pdf],
+        cancel_status: CancelStatus.Pending
       });
 
-      orderInfo.cancel_status = CancelStatus.Canceled;
+      orderInfo.cancel_status = CancelStatus.Cancelling;
       orderInfo.last_approve_cancel = new Date();
       orderInfo.new_tracking_id = payload.tracking_id;
 
