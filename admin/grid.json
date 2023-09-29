@@ -282,6 +282,12 @@
         "field": "created_at",
         "label": "Created At",
         "display": "date"
+      },
+      {
+        "field": "bypass",
+        "label": "Bypass",
+        "display": "enum",
+        "enumName": "yes-no"
       }
     ],
     "filter": []
