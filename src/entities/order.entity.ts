@@ -1,4 +1,15 @@
-import { Model, Table, Column, DataType, Unique, Default } from "sequelize-typescript";
+import {
+  Model,
+  Table,
+  Column,
+  DataType,
+  Unique,
+  Default,
+  BeforeCreate,
+  BeforeUpdate,
+  BeforeBulkCreate,
+  BeforeBulkUpdate,
+} from "sequelize-typescript";
 import { CancelStatus } from "../config/interface";
 @Table({
   tableName: "order",
@@ -25,7 +36,7 @@ export default class OrderEntity extends Model {
   zip: string;
   @Column({ type: DataType.STRING })
   country: string;
-  @Column({ type: DataType.TEXT })
+  @Column({ type: DataType.TEXT("long") })
   pdf: string;
   @Column({ type: DataType.INTEGER })
   page: number;
@@ -49,6 +60,20 @@ export default class OrderEntity extends Model {
   @Default([])
   @Column({ type: DataType.JSON })
   old_labels: string[];
+
+  @BeforeCreate
+  @BeforeUpdate
+  static checkTrackingId(inst: OrderEntity) {
+    inst.tracking_id = inst.tracking_id.replace(" ", "");
+  }
+
+  @BeforeBulkCreate
+  @BeforeBulkUpdate
+  static async checkTrackingIds(inst: OrderEntity[]) {
+    inst.forEach((data) => {
+      data.tracking_id = data.tracking_id.replace(" ", "");
+    });
+  }
 
   public async getPdf(): Promise<string> {
     if (this.new_tracking_id) {
