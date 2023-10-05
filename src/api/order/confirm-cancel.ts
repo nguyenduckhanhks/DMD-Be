@@ -36,7 +36,7 @@ export default async function (app: fastify.FastifyInstance) {
 
       let newOrder: any = null;
       if (orderInfo.new_tracking_id) {
-        newOrder = await OrderEntity.findOne({ where: { tracking: orderInfo.new_tracking_id } });
+        newOrder = await OrderEntity.findOne({ where: { tracking_id: orderInfo.new_tracking_id } });
         newOrder.cancel_status = CancelStatus.None;
       }
 
