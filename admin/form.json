@@ -223,7 +223,8 @@
         "dataType": "string",
         "disabled": true,
         "required": true,
-        "placeholder": "Tracking Id"
+        "placeholder": "Tracking Id",
+        "isTrim": true
       },
       {
         "field": "customer_name",

@@ -154,7 +154,9 @@
       {
         "field": "tracking_id",
         "label": "Tracking ID",
-        "display": "text"
+        "display": "text",
+        "isTrim": true,
+        "isTrim": true
       },
       {
         "field": "address",
@@ -246,7 +248,9 @@
       {
         "field": "tracking_id",
         "label": "Tracking ID",
-        "display": "text"
+        "display": "text",
+        "isTrim": true,
+        "isTrim": true
       },
       {
         "field": "address",
@@ -299,10 +303,7 @@
     "where": {
       "status": false,
       "cancel_status": 0,
-      "$or": [
-        { "bypass": { "$eq": false } },
-        { "bypass": { "$eq": null } }
-      ]
+      "$or": [{ "bypass": { "$eq": false } }, { "bypass": { "$eq": null } }]
     },
     "buttons": [
       {
@@ -331,7 +332,8 @@
       {
         "field": "tracking_id",
         "label": "Tracking ID",
-        "display": "text"
+        "display": "text",
+        "isTrim": true
       },
       {
         "field": "address",
@@ -411,7 +413,8 @@
       {
         "field": "tracking_id",
         "label": "Tracking ID",
-        "display": "text"
+        "display": "text",
+        "isTrim": true
       },
       {
         "field": "new_tracking_id",
@@ -502,7 +505,8 @@
       {
         "field": "tracking_id",
         "label": "Tracking ID",
-        "display": "text"
+        "display": "text",
+        "isTrim": true
       },
       {
         "field": "new_tracking_id",
@@ -598,7 +602,8 @@
       {
         "field": "tracking_id",
         "label": "Tracking ID",
-        "display": "text"
+        "display": "text",
+        "isTrim": true
       },
       {
         "field": "new_tracking_id",
