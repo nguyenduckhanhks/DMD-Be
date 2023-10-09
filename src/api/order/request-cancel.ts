@@ -14,6 +14,9 @@ export default async function (app: fastify.FastifyInstance) {
       if (!orderInfo) {
         throw new Error("not_found");
       }
+      if (orderInfo.cancel_status !== CancelStatus.None) {
+        throw new Error('invalid_status')
+      }
       orderInfo.cancel_status = CancelStatus.Cancelling;
       orderInfo.new_tracking_id = "";
       await orderInfo.save();
