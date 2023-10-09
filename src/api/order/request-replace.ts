@@ -35,7 +35,7 @@ export default async function (app: fastify.FastifyInstance) {
 
       orderInfo.cancel_status = CancelStatus.Cancelling;
       orderInfo.last_approve_cancel = new Date();
-      orderInfo.new_tracking_id = payload.tracking_id;
+      orderInfo.new_tracking_id = newOrder.tracking_id;
 
       await sequelize.transaction(async (transaction: Transaction) => {
         await newOrder.save({ transaction });
