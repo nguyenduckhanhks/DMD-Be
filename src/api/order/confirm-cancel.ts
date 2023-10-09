@@ -31,14 +31,14 @@ export default async function (app: fastify.FastifyInstance) {
         throw new Error("invalid_status");
       }
 
-      orderInfo.cancel_status = CancelStatus.Canceled;
-      orderInfo.last_approve_cancel = dayjs().toDate();
-
       let newOrder: any = null;
       if (orderInfo.new_tracking_id) {
         newOrder = await OrderEntity.findOne({ where: { tracking_id: orderInfo.new_tracking_id } });
         newOrder.cancel_status = CancelStatus.None;
       }
+
+      orderInfo.cancel_status = CancelStatus.Canceled;
+      orderInfo.last_approve_cancel = dayjs().toDate();
 
       await sequelize.transaction(async (transaction: Transaction) => {
         await orderInfo.save({ transaction });
