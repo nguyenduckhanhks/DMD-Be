@@ -29,6 +29,22 @@
   {
     "items": [
       {
+        "color": "green",
+        "label": "Valid",
+        "value": 1
+      },
+      {
+        "color": "red",
+        "label": "Invalid",
+        "value": 0
+      }
+    ],
+    "value_type": "number",
+    "name": "status"
+  },
+  {
+    "items": [
+      {
         "color": "",
         "label": "",
         "value": 0
