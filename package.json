@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node dist/entrypoint.js",
     "build": "rimraf dist && tsc",
-    "dev": "nodemon --ext 'ts,json' --ignore 'dist' --exec 'yarn build && yarn start' --legacy-watch",
+    "dev": "export RUN_CRONJOB=0 && nodemon --ext 'ts,json' --ignore 'dist' --exec 'yarn build && yarn start' --legacy-watch",
     "test": "ts-node src/test.ts"
   },
   "repository": {

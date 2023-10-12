@@ -15,6 +15,7 @@ export default async function scheduleUploadOrderLabelToCloud() {
       for (var i = 0; i < events.length; i++) {
         try {
           await handleUploadLabel(events[i]);
+          console.error("handle upload label success ", events[i].id);
         } catch (error) {
           console.error("handle upload label error ", events[i].id);
         }

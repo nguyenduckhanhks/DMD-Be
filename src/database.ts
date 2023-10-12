@@ -1,5 +1,4 @@
 import { Sequelize } from "sequelize-typescript";
-import { Environment } from "./config/environment";
 import {
   HistoryInsertOrderEntity,
   OrderEntity,
@@ -28,8 +27,5 @@ export const sequelize = new Sequelize({
   },
 });
 export default async function init() {
-  if (Environment.RUN_CRONJON) {
-    return;
-  }
   await sequelize.sync({ alter: true });
 }

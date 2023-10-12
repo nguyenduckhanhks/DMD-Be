@@ -1,6 +1,7 @@
 "use strict";
 import * as fastify from "fastify";
 import { OrderEntity } from "../../entities";
+import gcp from "../../services/gcp";
 export default async function (app: fastify.FastifyInstance) {
   app.route({
     method: "POST",
@@ -24,9 +25,13 @@ export default async function (app: fastify.FastifyInstance) {
       if (!orderInfo.status && !orderInfo.bypass) {
         throw new Error("order_invalid_data");
       }
-      let pdf = await orderInfo.getPdf()
+      let pdf = await orderInfo.getPdf();
+      if (pdf.includes("https")) {
+        pdf = await gcp.getSignedUrl(gcp.extractBucketUrl(pdf));
+      }
+
       return {
-        pdf
+        pdf,
       };
     },
   });

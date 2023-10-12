@@ -3,12 +3,7 @@ import * as fastify from "fastify";
 import UserGuard from "../../guard/user-guard";
 import UserEntity from "../../entities/user.entity";
 //admin
-import {
-  HistoryInsertOrderEntity,
-  OrderEntity,
-  PasswordEntity,
-  RoleEntity,
-} from "../../entities";
+import { HistoryInsertOrderEntity, OrderEntity, PasswordEntity, RoleEntity } from "../../entities";
 //admin
 import { Op } from "sequelize";
 import _ from "lodash";
@@ -18,6 +13,7 @@ import ExcelJS from "exceljs";
 import Config from "../../config/api-config";
 import dayjs from "dayjs";
 import { admin } from "../../services/user";
+import gcp from "../../services/gcp";
 const modelMap: { [key: string]: any } = {
   password: PasswordEntity,
   user: UserEntity,
@@ -35,11 +31,7 @@ export default async function (app: fastify.FastifyInstance) {
       const { name } = <{ [key: string]: string }>req.params;
       const apiInfo = admin.getApiByName(name);
       let roleInfo = RoleEntity.getById(req.user.role);
-      if (
-        apiInfo.permissions &&
-        apiInfo.permissions.length &&
-        !_.intersection(roleInfo.permissions, apiInfo.permissions).length
-      ) {
+      if (apiInfo.permissions && apiInfo.permissions.length && !_.intersection(roleInfo.permissions, apiInfo.permissions).length) {
         throw new Error("invalid_permission");
       }
       const model = modelMap[apiInfo.model];
@@ -48,11 +40,7 @@ export default async function (app: fastify.FastifyInstance) {
       }
       if (apiInfo.request_fields) {
         for (var i in body) {
-          if (
-            !apiInfo.request_fields.includes(i) &&
-            i !== "version" &&
-            i !== "id"
-          ) {
+          if (!apiInfo.request_fields.includes(i) && i !== "version" && i !== "id") {
             delete body[i];
           }
         }
@@ -76,11 +64,7 @@ export default async function (app: fastify.FastifyInstance) {
           if (!body.id) {
             throw new Error("id_not_found");
           }
-          let deleteQuery: any = convertWhere(
-            { id: body.id },
-            apiInfo?.query?.where || {},
-            req.user
-          );
+          let deleteQuery: any = convertWhere({ id: body.id }, apiInfo?.query?.where || {}, req.user);
           //@ts-ignore
           const deletedDocument = await model.destroy({ where: deleteQuery });
           if (!deletedDocument) {
@@ -92,11 +76,7 @@ export default async function (app: fastify.FastifyInstance) {
             throw new Error("id_or_version_not_found");
           }
 
-          let updateQuery: any = convertWhere(
-            { id: body.id, version: body.version },
-            apiInfo?.query?.where || [],
-            req.user
-          );
+          let updateQuery: any = convertWhere({ id: body.id, version: body.version }, apiInfo?.query?.where || [], req.user);
           for (var i in updateQuery) {
             updateQuery[i] = convertValue(updateQuery[i], req.user);
           }
@@ -117,15 +97,9 @@ export default async function (app: fastify.FastifyInstance) {
           return updatedDocument;
         case "find":
           let query: any = apiInfo.query || {};
-          query.where = convertWhere(
-            body.where || {},
-            apiInfo?.query?.where || {},
-            req.user
-          );
+          query.where = convertWhere(body.where || {}, apiInfo?.query?.where || {}, req.user);
           query.offset = body.offset || 0;
-          query.limit = body.export
-            ? Config.MAX_LIMIT
-            : Math.min(body.limit || Config.MAX_LIMIT, Config.MAX_LIMIT);
+          query.limit = body.export ? Config.MAX_LIMIT : Math.min(body.limit || Config.MAX_LIMIT, Config.MAX_LIMIT);
           query.order = body.order || [["id", "desc"]];
           query.export = body.export ?? false;
           if (query.include && query.include.length) {
@@ -141,6 +115,17 @@ export default async function (app: fastify.FastifyInstance) {
           //@ts-ignore
           let rs = await model.findAndCountAll(query);
           let data = rs.rows.map((i: any) => i.dataValues);
+          if (["get-orders"].includes(name) && data.length === 1) {
+            data = await Promise.all(
+              data.map(async (d: OrderEntity) => {
+                if (d.is_upload_cloud) {
+                  d.pdf = await gcp.getImageDataAndConvertToBase64(d.pdf);
+                }
+                return d;
+              })
+            );
+          }
+
           if (query.export) {
             const now = dayjs().format("DD_MM_YYYY");
             const workbook = new ExcelJS.Workbook();
@@ -159,8 +144,7 @@ export default async function (app: fastify.FastifyInstance) {
             worksheet.addRows(data);
 
             reply.raw.writeHead(200, {
-              "Content-Type":
-                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              "Content-Type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
             });
             reply.raw.writeHead(200, {
               "Content-Disposition": `attachment; filename=${now}.xlsx`,
@@ -195,11 +179,7 @@ function convertKey(k: string) {
   }
   return k;
 }
-function convertWhere(
-  inputWhere: any,
-  baseWhere: any,
-  userInfo: UserEntity
-): any {
+function convertWhere(inputWhere: any, baseWhere: any, userInfo: UserEntity): any {
   let where: any = { ...baseWhere };
   if (!where["$and"]) {
     where["$and"] = [];
@@ -210,11 +190,7 @@ function convertWhere(
   convertWhereObject(where, baseWhere, userInfo);
   return where;
 }
-function convertWhereObject(
-  where: any,
-  baseWhere: any,
-  userInfo: UserEntity
-): any {
+function convertWhereObject(where: any, baseWhere: any, userInfo: UserEntity): any {
   if (typeof where == "string") return;
   for (var i in where) {
     let key = convertKey(i);
