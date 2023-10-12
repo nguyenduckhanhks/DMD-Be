@@ -9,6 +9,7 @@ import {
   BeforeUpdate,
   BeforeBulkCreate,
   BeforeBulkUpdate,
+  Index,
 } from "sequelize-typescript";
 import { CancelStatus } from "../config/interface";
 @Table({
@@ -21,6 +22,7 @@ import { CancelStatus } from "../config/interface";
 export default class OrderEntity extends Model {
   @Column({ type: DataType.INTEGER })
   history_id: number;
+  @Index("tracking_idx")
   @Unique("tracking")
   @Column({ type: DataType.STRING })
   tracking_id: string;
@@ -60,6 +62,7 @@ export default class OrderEntity extends Model {
   @Default([])
   @Column({ type: DataType.JSON })
   old_labels: string[];
+  @Index("is_upload_cloud")
   @Default(false)
   @Column({ type: DataType.BOOLEAN })
   is_upload_cloud: boolean;

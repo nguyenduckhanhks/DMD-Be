@@ -28,7 +28,7 @@ export const sequelize = new Sequelize({
   },
 });
 export default async function init() {
-  if (Environment.IS_WORKER) {
+  if (Environment.RUN_CRONJON) {
     return;
   }
   await sequelize.sync({ alter: true });
