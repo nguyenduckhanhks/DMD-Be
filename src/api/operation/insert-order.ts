@@ -21,7 +21,7 @@ export default async function (app: fastify.FastifyInstance) {
     handler: async function (request: any, reply: any) {
       const { title, data } = request.body;
       const historyInsertInfo = new HistoryInsertOrderEntity({
-        title,
+        title: title ?? "",
         user_id: request.user.id,
       });
       const orderInfos: OrderEntity[] = data.map(

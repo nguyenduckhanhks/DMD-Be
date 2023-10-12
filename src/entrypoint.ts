@@ -15,11 +15,9 @@ import db from "./database";
 import onSend from "./hooks/on-send";
 import preValidation from "./hooks/pre-validation";
 import cronjob from "./cronjob";
-import test from "./test";
 
 //@ts-ignore
 import { fastifyRequestContextPlugin } from "fastify-request-context";
-import rabbit from "./services/rabbitmq";
 import bootstrap from "./services/bootstrap";
 /**
  * App Variables
@@ -59,17 +57,12 @@ db().then(async () => {
       methods: ["GET", "POST"],
     },
   });
-  // fastify.register(FastifyStatic, {
-  //   root: ApiConfig.FOLDER.TESTUI,
-  //   prefix: "/testui/", // optional: default '/'
-  // });
   fastifyAPI.addHook("preValidation", (req, reply, done) => {
     done();
   });
   console.log("fastify plugin loaded");
   fastifyAPI.listen(process.env.SERVICE_PORT, "0.0.0.0", (err, address) => {
     cronjob();
-    test();
     if (err) {
       console.error("fastify error ", err);
       process.exit(1);

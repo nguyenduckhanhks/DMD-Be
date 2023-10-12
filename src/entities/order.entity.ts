@@ -60,6 +60,9 @@ export default class OrderEntity extends Model {
   @Default([])
   @Column({ type: DataType.JSON })
   old_labels: string[];
+  @Default(false)
+  @Column({ type: DataType.BOOLEAN })
+  is_upload_cloud: boolean;
 
   @BeforeCreate
   @BeforeUpdate
