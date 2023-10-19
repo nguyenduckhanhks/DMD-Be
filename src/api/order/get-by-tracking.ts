@@ -1,4 +1,5 @@
 "use strict";
+import dayjs from "dayjs";
 import * as fastify from "fastify";
 import { OrderEntity } from "../../entities";
 import gcp from "../../services/gcp";
@@ -30,6 +31,11 @@ export default async function (app: fastify.FastifyInstance) {
         pdf = await gcp.getSignedUrl(gcp.extractBucketUrl(pdf));
       }
 
+      if (!orderInfo.is_upload_cloud && !orderInfo.required_upload_cloud_at) {
+        orderInfo.required_upload_cloud_at = dayjs().add(10, "day").toDate();
+        orderInfo.save();
+      }
+  
       return {
         pdf,
       };
