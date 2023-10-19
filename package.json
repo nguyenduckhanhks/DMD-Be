@@ -1,5 +1,5 @@
 {
-  "name": "testcolyseus",
+  "name": "dmd",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -8,17 +8,9 @@
     "dev": "export RUN_CRONJOB=0 && nodemon --ext 'ts,json' --ignore 'dist' --exec 'yarn build && yarn start' --legacy-watch",
     "test": "ts-node src/test.ts"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/tungdt25041/testcolyseus.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://gitlab.com/tungdt25041/testcolyseus/issues"
-  },
-  "homepage": "https://gitlab.com/tungdt25041/testcolyseus#readme",
   "dependencies": {
     "@babel/core": "^7.15.5",
     "@babel/register": "^7.15.3",
