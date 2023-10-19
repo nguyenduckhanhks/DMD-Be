@@ -66,6 +66,8 @@ export default class OrderEntity extends Model {
   @Default(false)
   @Column({ type: DataType.BOOLEAN })
   is_upload_cloud: boolean;
+  @Column({ type: DataType.DATE })
+  required_upload_cloud_at: Date;
 
   @BeforeCreate
   @BeforeUpdate

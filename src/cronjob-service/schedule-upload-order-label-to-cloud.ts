@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import { Op } from "sequelize";
 import { OrderEntity } from "../entities";
 import gcp from "../services/gcp";
 
@@ -8,10 +9,16 @@ export default async function scheduleUploadOrderLabelToCloud() {
       let events = await OrderEntity.findAll({
         where: {
           is_upload_cloud: false,
+          required_upload_cloud_at: {
+            [Op.and]: {
+              [Op.lte]: dayjs().toDate(),
+              [Op.ne]: null,
+            },
+          },
         },
         limit: 5,
       });
-    
+
       for (var i = 0; i < events.length; i++) {
         try {
           await handleUploadLabel(events[i]);
