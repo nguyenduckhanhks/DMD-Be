@@ -5,6 +5,11 @@
         "color": "brown",
         "label": "Admin",
         "value": 1
+      },
+      {
+        "color": "green",
+        "label": "Employee",
+        "value": 2
       }
     ],
     "value_type": "number",
