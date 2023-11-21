@@ -89,6 +89,10 @@
           {
             "label": "Approve Cancel Request Manager",
             "value": 4
+          },
+          {
+            "label": "Label printing",
+            "value": 5
           }
         ]
       }

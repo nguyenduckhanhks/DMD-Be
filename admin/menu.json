@@ -9,7 +9,7 @@
     "name": "Label Printing",
     "url": "/label-scan",
     "icon": "print",
-    "permissions": [3]
+    "permissions": [5]
   },
   {
     "name": "Order",
