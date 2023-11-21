@@ -32,7 +32,7 @@ db().then(async () => {
   await bootstrap();
   // rabbit.init();
   const fastifyAPI = Fastify({
-    bodyLimit: 30 * 1024 * 1024 // Default Limit set to 30MB
+    bodyLimit: 300 * 1024 * 1024 // Default Limit set to 30MB
   });
   fastifyAPI.register(require("fastify-multipart"));
   fastifyAPI.register(require("fastify-compress"), { global: false });
