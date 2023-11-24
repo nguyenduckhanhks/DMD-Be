@@ -85,7 +85,7 @@
     "model": null,
     "action": null,
     "query": null,
-    "permissions": [3],
+    "permissions": [6],
     "request_fields": null,
     "response_fields": null
   },
