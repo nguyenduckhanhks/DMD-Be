@@ -3,7 +3,7 @@
     "name": "Import data",
     "url": "/",
     "icon": "upload",
-    "permissions": [3]
+    "permissions": [6]
   },
   {
     "name": "Label Printing",

@@ -48,6 +48,7 @@ export default async function (app: fastify.FastifyInstance) {
             try {
               orderInfo.history_id = historyInsertInfo.id;
               await orderInfo.save({ transaction: t });
+              // await OrderEntity.upsert(orderInfo.toJSON(), { transaction: t });
             } catch (err) {
               console.log(err)
             }

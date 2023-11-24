@@ -93,6 +93,10 @@
           {
             "label": "Label printing",
             "value": 5
+          },
+          {
+            "label": "Import data",
+            "value": 6
           }
         ]
       }
