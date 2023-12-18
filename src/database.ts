@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 import {
   HistoryInsertOrderEntity,
+  Order17TrackEntity,
   OrderEntity,
   PasswordEntity,
   RoleEntity,
@@ -19,6 +20,7 @@ export const sequelize = new Sequelize({
     PasswordEntity,
     OrderEntity,
     HistoryInsertOrderEntity,
+    Order17TrackEntity,
   ],
   // query: { raw: true },
   logging: false,

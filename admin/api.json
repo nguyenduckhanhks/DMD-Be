@@ -88,6 +88,15 @@
     "permissions": [6],
     "request_fields": null,
     "response_fields": null
+  },  
+  {
+    "name": "/operation/insert-17track-order",
+    "model": null,
+    "action": null,
+    "query": null,
+    "permissions": [6],
+    "request_fields": null,
+    "response_fields": null
   },
   {
     "name": "/operation/get-download-data",
