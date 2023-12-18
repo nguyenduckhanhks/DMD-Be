@@ -15,7 +15,6 @@ export default async function (app: fastify.FastifyInstance) {
         required: ["id"],
       },
     },
-    preHandler: APIGuard,
     handler: async function (request: any, reply: any) {
       const { id: dmd_tracking_id } = request.body;
       const order17TrackInfo = await Order17TrackEntity.findOne({
