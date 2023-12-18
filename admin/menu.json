@@ -4,6 +4,11 @@
     "url": "/",
     "icon": "upload",
     "permissions": [6]
+  },{
+    "name": "Import data 17Track",
+    "url": "/import-17track",
+    "icon": "upload",
+    "permissions": [6]
   },
   {
     "name": "Label Printing",
@@ -52,6 +57,30 @@
       {
         "name": "Pending Order",
         "url": "/list/pending-order",
+        "icon": "folder",
+        "permissions": [
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "name": "17Track Order",
+    "url": "/list/17-track-order",
+    "icon": "folder",
+    "permissions": [3],
+    "children": [
+      {
+        "name": "Success 17Track Order",
+        "url": "/list/success-17track-order",
+        "icon": "folder",
+        "permissions": [
+          3
+        ]
+      },
+      {
+        "name": "Pending 17Track Order",
+        "url": "/list/pending-17track-order",
         "icon": "folder",
         "permissions": [
           3

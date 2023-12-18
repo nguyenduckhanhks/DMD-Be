@@ -99,6 +99,33 @@
     "response_fields": null
   },
   {
+    "name": "get-17track-orders",
+    "model": "17track-order",
+    "action": "find",
+    "query": {},
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "update-17track-order",
+    "model": "17track-order",
+    "action": "update",
+    "query": {},
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
+    "name": "update-17track-order",
+    "model": "17track-order",
+    "action": "update",
+    "query": {},
+    "permissions": [3],
+    "request_fields": null,
+    "response_fields": []
+  },
+  {
     "name": "/operation/get-download-data",
     "model": null,
     "action": null,

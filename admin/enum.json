@@ -35,6 +35,22 @@
     "items": [
       {
         "color": "green",
+        "label": "Yes",
+        "value": true
+      },
+      {
+        "color": "red",
+        "label": "No",
+        "value": false
+      }
+    ],
+    "value_type": "number",
+    "name": "true-false"
+  },
+  {
+    "items": [
+      {
+        "color": "green",
         "label": "Valid",
         "value": 1
       },

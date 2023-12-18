@@ -3,7 +3,7 @@ import * as fastify from "fastify";
 import UserGuard from "../../guard/user-guard";
 import UserEntity from "../../entities/user.entity";
 //admin
-import { HistoryInsertOrderEntity, OrderEntity, PasswordEntity, RoleEntity } from "../../entities";
+import { HistoryInsertOrderEntity, Order17TrackEntity, OrderEntity, PasswordEntity, RoleEntity } from "../../entities";
 //admin
 import { Op } from "sequelize";
 import _ from "lodash";
@@ -20,6 +20,7 @@ const modelMap: { [key: string]: any } = {
   role: RoleEntity,
   order: OrderEntity,
   "history-insert-order": HistoryInsertOrderEntity,
+  "17track-order": Order17TrackEntity,
 };
 export default async function (app: fastify.FastifyInstance) {
   app.route({

@@ -301,5 +301,68 @@
         "className": "pdf-small-container"
       }
     ]
+  },
+  {
+    "name": "edit-17track-order",
+    "label": "Edit 17Track order",
+    "api": "/operation/api/get-17track-orders",
+    "totalGrid": 2,
+    "buttons": [
+      {
+        "api": "/operation/api/update-17track-order",
+        "icon": "edit",
+        "color": "blue",
+        "label": "Save",
+        "action": "api",
+        "pageMode": "edit",
+        "position": "top"
+      }
+    ],
+    "controls": [
+      {
+        "field": "dmd_tracking_id",
+        "label": "DMD Tracking ID",
+        "control": "text",
+        "dataType": "string",
+        "disabled": true,
+        "required": true,
+        "placeholder": "DMD Tracking ID",
+        "isTrim": true
+      },
+      {
+        "field": "container_tracking_id",
+        "label": "Container Tracking ID",
+        "control": "text",
+        "dataType": "string",
+        "disabled": true,
+        "required": true,
+        "placeholder": "Container Tracking ID",
+        "isTrim": true
+      },
+      {
+        "field": "tracking_id",
+        "label": "Tracking Id",
+        "control": "text",
+        "dataType": "string",
+        "disabled": true,
+        "required": true,
+        "placeholder": "Tracking Id",
+        "isTrim": true
+      },
+      {
+        "field": "is_register_container",
+        "label": "Is Register Container",
+        "control": "enum",
+        "enum": "true-false",
+        "required": false
+      },
+      {
+        "field": "is_register_tracking",
+        "label": "Is Register Tracking",
+        "control": "enum",
+        "enum": "true-false",
+        "required": false
+      }
+    ]
   }
 ]

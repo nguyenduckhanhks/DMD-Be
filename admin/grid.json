@@ -680,5 +680,179 @@
       }
     ],
     "filter": []
+  },
+  {
+    "name": "success-17track-order",
+    "label": "Success 17Track Order",
+    "api": "/operation/api/get-17track-orders",
+    "where": {
+      "$and": [
+        {
+          "is_complete_container": {
+            "$eq": 1
+          }
+        },
+        {
+          "is_complete_tracking": {
+            "$eq": 1
+          }
+        }
+      ]
+    },
+    "buttons": [
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/edit-17track-order/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      }
+    ],
+    "columns": [
+      {
+        "field": "dmd_tracking_id",
+        "label": "DMD Tracking ID",
+        "display": "text",
+        "isTrim": true
+      },
+      {
+        "field": "container_tracking_id",
+        "label": "Container Tracking ID",
+        "display": "text",
+        "isTrim": true
+      },
+      {
+        "field": "tracking_id",
+        "label": "Tracking ID",
+        "display": "text",
+        "isTrim": true
+      },
+      {
+        "field": "is_register_container",
+        "label": "Register Container",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "is_register_tracking",
+        "label": "Register Tracking",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "is_complete_container",
+        "label": "Complete Get Container",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "is_complete_tracking",
+        "label": "Completa Get Tracking",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "data_tracking",
+        "label": "Data Tracking",
+        "display": "data_tracking"
+      },
+      {
+        "field": "created_at",
+        "label": "Created At",
+        "display": "date"
+      }
+    ],
+    "filter": []
+  },
+  {
+    "name": "pending-17track-order",
+    "label": "Pending 17Track Order",
+    "api": "/operation/api/get-17track-orders",
+    "where": {
+      "$or": [
+        {
+          "is_complete_container": {
+            "$eq": 0
+          }
+        },
+        {
+          "is_complete_tracking": {
+            "$eq": 0
+          }
+        }
+      ]
+    },
+    "buttons": [
+      {
+        "icon": "edit",
+        "color": "yellow",
+        "label": "Edit",
+        "action": "redirect",
+        "position": "row",
+        "redirectUrl": "/form/edit-17track-order/edit",
+        "redirectUrlEmbed": {
+          "id": "$id"
+        }
+      }
+    ],
+    "columns": [
+      {
+        "field": "dmd_tracking_id",
+        "label": "DMD Tracking ID",
+        "display": "text",
+        "isTrim": true
+      },
+      {
+        "field": "container_tracking_id",
+        "label": "Container Tracking ID",
+        "display": "text",
+        "isTrim": true
+      },
+      {
+        "field": "tracking_id",
+        "label": "Tracking ID",
+        "display": "text",
+        "isTrim": true
+      },
+      {
+        "field": "is_register_container",
+        "label": "Register Container",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "is_register_tracking",
+        "label": "Register Tracking",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "is_complete_container",
+        "label": "Complete Get Container",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "is_complete_tracking",
+        "label": "Completa Get Tracking",
+        "display": "enum",
+        "enumName": "yes-no"
+      },
+      {
+        "field": "data_tracking",
+        "label": "Data Tracking",
+        "display": "data_tracking"
+      },
+      {
+        "field": "created_at",
+        "label": "Created At",
+        "display": "date"
+      }
+    ],
+    "filter": []
   }
 ]
