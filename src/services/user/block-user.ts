@@ -1,7 +1,7 @@
 import { Transaction } from "sequelize";
 import { sequelize } from "../../database";
 import { UserEntity } from "../../entities";
-import redis from "../redis";
+import redis from "../../utils/redis";
 
 export default async function blockUser(id: number) {
   let userInfo = await UserEntity.findByPk(id);

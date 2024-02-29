@@ -1,4 +1,4 @@
-import * as mathjs from "mathjs";
+import * as mathjs from 'mathjs';
 function randomInt(min: number, max: number): number {
   return Math.round(min + Math.random() * (max - min));
 }
@@ -25,6 +25,7 @@ function generateReferral(id: number) {
   let a = id + 10000000000;
   return `MS${a.toString(36)}`.toUpperCase();
 }
+
 const mathUtils = {
   randomInt,
   add,

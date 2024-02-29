@@ -1,4 +1,4 @@
-import { customEncrypt } from "../services";
+import customEncrypt from '../utils/custom-encrypt';
 
 export default async function preValidation(req: any, reply: any) {
   console.log(req.url);

@@ -1,4 +1,6 @@
-import { cache, customEncrypt } from "../services";
+import cache from '../utils/cache';
+import customEncrypt from '../utils/custom-encrypt';
+
 export default async function onSend(req: any, res: any, payload: any) {
   if (req.cacheKey && !req.isCached) {
     cache.set(req.cacheKey, payload);

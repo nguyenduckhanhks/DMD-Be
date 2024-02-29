@@ -1,13 +1,13 @@
-import { scheduleJob } from "node-schedule";
-import { Model, Table, Column, DataType, Unique } from "sequelize-typescript";
-import { cache } from "../services";
+import { scheduleJob } from 'node-schedule';
+import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import cache from '../utils/cache';
 
 @Table({
-  tableName: "role",
+  tableName: 'role',
   version: true,
   underscored: true,
-  createdAt: "created_at",
-  updatedAt: "updated_at",
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
 })
 export default class RoleEntity extends Model {
   @Column({ type: DataType.STRING })
@@ -20,11 +20,11 @@ export default class RoleEntity extends Model {
     all.forEach((r: RoleEntity) => {
       obj[r.id] = r;
     });
-    cache.set("all_roles", obj, 0);
+    cache.set('all_roles', obj, 0);
   }
   public static async runRefresh() {
     await RoleEntity.refresh();
-    scheduleJob("*/1 * * * *", async () => {
+    scheduleJob('*/1 * * * *', async () => {
       try {
         await RoleEntity.refresh();
       } catch (error) {
@@ -33,11 +33,11 @@ export default class RoleEntity extends Model {
     });
   }
   public static getAlls() {
-    return cache.get("all_roles");
+    return cache.get('all_roles');
   }
   public static getById(id: number) {
     let all: any = RoleEntity.getAlls();
-    if (!all[id]) throw new Error("role_not_found");
+    if (!all[id]) throw new Error('role_not_found');
     return all[id];
   }
 }

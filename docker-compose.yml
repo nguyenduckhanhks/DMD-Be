@@ -7,7 +7,7 @@ services:
       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
       - MYSQL_DATABASE=${DB_NAME}
     ports:
-      - 3306:3306
+      - 3307:3306
     volumes:
       - ./dbgamedev:/var/lib/mysql
   redis:
@@ -17,7 +17,7 @@ services:
       - DISABLE_COMMANDS=FLUSHDB,FLUSHALL,CONFIG
     restart: unless-stopped
     ports:
-      - 6379:6379
+      - 6380:6379
     volumes:
       - redisdata:/data
 volumes:

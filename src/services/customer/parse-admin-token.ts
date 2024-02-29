@@ -1,5 +1,5 @@
 import { UserEntity } from "../../entities";
-import redis from "../redis";
+import redis from "../../utils/redis";
 
 export default async function parseAdminToken(token: string): Promise<{
   userInfo: UserEntity;

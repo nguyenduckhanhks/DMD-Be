@@ -1,7 +1,7 @@
 import { UserEntity } from "../../entities";
 import { sequelize } from "../../database";
 import PasswordEntity from "../../entities/password.entity";
-import crypt from "../crypt";
+import crypt from "../../utils/crypt";
 interface Input {
   user_name: string;
   password: string;

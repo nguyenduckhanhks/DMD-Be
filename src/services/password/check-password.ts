@@ -1,5 +1,5 @@
 import { PasswordEntity } from "../../entities";
-import crypt from "../crypt";
+import crypt from "../../utils/crypt";
 export default async function checkPassword(
   user_id: number,
   password: string

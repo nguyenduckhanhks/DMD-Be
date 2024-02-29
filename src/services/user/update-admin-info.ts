@@ -1,6 +1,6 @@
 import { ApiConfig } from "../../config";
 import { UserEntity } from "../../entities";
-import redis from "../redis";
+import redis from "../../utils/redis";
 
 export default async function updateAdminInfo(userInfo: UserEntity) {
   let key = `admin_token_${userInfo.id}`;

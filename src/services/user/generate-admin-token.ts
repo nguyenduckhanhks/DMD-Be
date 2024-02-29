@@ -1,7 +1,7 @@
 import { ApiConfig } from "../../config";
 import { UserEntity } from "../../entities";
-import crypt from "../crypt";
-import redis from "../redis";
+import crypt from "../../utils/crypt";
+import redis from "../../utils/redis";
 
 export default async function generateAdminToken(
   userInfo: UserEntity
